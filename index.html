@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>سایت مقالات - افق‌های جدید</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700&display=swap');
+        
+        body {
+            font-family: 'Vazirmatn', sans-serif;
+            background-color: #f0f4f8; /* Light background color */
+            transition: background-color 0.5s ease;
+        }
+
+        .dark body {
+            background-color: #1a202c; /* Dark background color */
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .dark .glass-card {
+            background: rgba(26, 32, 44, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
+        }
+
+        .glass-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 24px 0 rgba(31, 38, 135, 0.5);
+        }
+
+        /* Custom scrollbar for a unique look */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background-color: #9ca3af; /* Gray-400 */
+            border-radius: 4px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background-color: #e5e7eb; /* Gray-200 */
+        }
+
+        .dark ::-webkit-scrollbar-thumb {
+            background-color: #4a5568; /* Gray-600 */
+        }
+        
+        .dark ::-webkit-scrollbar-track {
+            background-color: #2d3748; /* Gray-800 */
+        }
+    </style>
+</head>
+<body class="text-gray-800 dark:text-gray-200">
+
+    <!-- Header & Navigation -->
+    <header class="p-6 md:p-10 flex justify-between items-center z-10 sticky top-0 bg-transparent">
+        <div class="text-xl md:text-2xl font-bold transition-colors duration-300">
+            <a href="#" class="hover:text-gray-600 dark:hover:text-gray-400">افق</a>
+        </div>
+        <nav class="flex items-center space-x-4 space-x-reverse">
+            <a href="#" class="hover:text-gray-600 dark:hover:text-gray-400 text-sm md:text-base transition-colors duration-300">خانه</a>
+            <a href="#" class="hover:text-gray-600 dark:hover:text-gray-400 text-sm md:text-base transition-colors duration-300">درباره ما</a>
+            <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors duration-300 focus:outline-none">
+                <svg id="sun-icon" class="w-6 h-6 text-yellow-500" fill="currentColor" viewBox="0 0 24 24" stroke="none" style="display: none;">
+                    <path d="M12 2.25a.75.75 0 01.75.75v2.25a.75.75 0 01-1.5 0V3a.75.75 0 01.75-.75zM7.5 12a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM18.894 6.184a.75.75 0 00-1.06-1.06l-1.591 1.59a.75.75 0 101.06 1.06l1.59-1.59zM21.75 12a.75.75 0 01-.75.75h-2.25a.75.75 0 010-1.5h2.25a.75.75 0 01.75.75zM18.894 17.816a.75.75 0 001.06-1.06l-1.59-1.59a.75.75 0 00-1.06 1.06l1.59 1.59zM12 18.75a.75.75 0 01.75.75v2.25a.75.75 0 01-1.5 0v-2.25a.75.75 0 01.75-.75zM5.06 17.816a.75.75 0 001.06 1.06l1.59-1.59a.75.75 0 00-1.06-1.06L5.06 17.816zM3 12a.75.75 0 01.75-.75h2.25a.75.75 0 010 1.5H3.75A.75.75 0 013 12zM5.06 6.184a.75.75 0 00-1.06 1.06l1.59 1.59a.75.75 0 001.06-1.06L5.06 6.184z" />
+                </svg>
+                <svg id="moon-icon" class="w-6 h-6 text-indigo-500" fill="currentColor" viewBox="0 0 24 24" stroke="none">
+                    <path d="M9.529 1.25a.75.75 0 01.708.869c.145.72.72 1.295 1.44 1.44a.75.75 0 01.87.708A9.006 9.006 0 018.066 17.61a.75.75 0 01-.77-1.391A7.502 7.502 0 0014.25 10.5a7.5 7.5 0 00-6.732-7.444A.75.75 0 018.25 2.25z" />
+                </svg>
+            </button>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto p-4 md:p-8">
+        
+        <!-- Hero Section -->
+        <section class="mb-16 md:mb-24 text-center">
+            <h1 class="text-4xl md:text-6xl font-extrabold leading-tight text-gray-900 dark:text-white transition-colors duration-300 mb-4">
+                کلماتی که جهان را می‌سازند
+            </h1>
+            <p class="text-lg md:text-xl text-gray-600 dark:text-gray-400 transition-colors duration-300">
+                اینجا، ایده‌ها زندگی می‌کنند.
+            </p>
+        </section>
+
+        <!-- Articles Grid -->
+        <section id="articles-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Article Card 1 -->
+            <div class="glass-card p-6 md:p-8 rounded-3xl cursor-pointer hover:shadow-xl transition-all duration-300">
+                <div class="text-xs text-gray-500 dark:text-gray-400 mb-2">
+                    <span class="mr-2">نویسنده: سارا احمدی</span>
+                    <span>تاریخ: ۲۴ اردیبهشت</span>
+                </div>
+                <h2 class="text-2xl md:text-3xl font-bold mb-3 text-gray-900 dark:text-white">
+                    <a href="#">هنر سکوت در دنیای پرهیاهو</a>
+                </h2>
+                <p class="text-sm md:text-base text-gray-700 dark:text-gray-300">
+                    در عصری که اطلاعات مانند سیلابی بی‌وقفه در جریان است، چگونه می‌توان لحظاتی از آرامش و سکوت واقعی را یافت؟ این مقاله به بررسی تأثیرات عمیق سکوت بر ذهن و روح می‌پردازد.
+                </p>
+            </div>
+
+            <!-- Article Card 2 -->
+            <div class="glass-card p-6 md:p-8 rounded-3xl cursor-pointer hover:shadow-xl transition-all duration-300">
+                <div class="text-xs text-gray-500 dark:text-gray-400 mb-2">
+                    <span class="mr-2">نویسنده: علی رضایی</span>
+                    <span>تاریخ: ۱۷ اردیبهشت</span>
+                </div>
+                <h2 class="text-2xl md:text-3xl font-bold mb-3 text-gray-900 dark:text-white">
+                    <a href="#">سفر به ناشناخته‌ها: نقش کنجکاوی در کشف</a>
+                </h2>
+                <p class="text-sm md:text-base text-gray-700 dark:text-300">
+                    کنجکاوی، نیروی محرک پشت تمام اکتشافات بشری است. از ستاره‌شناسی تا اعماق اقیانوس‌ها، این مقاله کنجکاوی را به عنوان کلیدی برای باز کردن درهای دانش بررسی می‌کند.
+                </p>
+            </div>
+
+            <!-- Article Card 3 -->
+            <div class="glass-card p-6 md:p-8 rounded-3xl cursor-pointer hover:shadow-xl transition-all duration-300">
+                <div class="text-xs text-gray-500 dark:text-gray-400 mb-2">
+                    <span class="mr-2">نویسنده: لیلا کریمی</span>
+                    <span>تاریخ: ۱۰ اردیبهشت</span>
+                </div>
+                <h2 class="text-2xl md:text-3xl font-bold mb-3 text-gray-900 dark:text-white">
+                    <a href="#">معماری مینیمال و تأثیر آن بر زندگی</a>
+                </h2>
+                <p class="text-sm md:text-base text-gray-700 dark:text-gray-300">
+                    چگونه فضاهای خالی و ساده می‌توانند آرامش را به زندگی ما دعوت کنند؟ این مقاله نگاهی به فلسفه پشت معماری مینیمال و چگونگی کاهش استرس روزمره دارد.
+                </p>
+            </div>
+
+            <!-- Article Card 4 -->
+            <div class="glass-card p-6 md:p-8 rounded-3xl cursor-pointer hover:shadow-xl transition-all duration-300">
+                <div class="text-xs text-gray-500 dark:text-gray-400 mb-2">
+                    <span class="mr-2">نویسنده: رضا یوسفی</span>
+                    <span>تاریخ: ۳ اردیبهشت</span>
+                </div>
+                <h2 class="text-2xl md:text-3xl font-bold mb-3 text-gray-900 dark:text-white">
+                    <a href="#">آینده هوش مصنوعی: فراتر از تخیل</a>
+                </h2>
+                <p class="text-sm md:text-base text-gray-700 dark:text-gray-300">
+                    هوش مصنوعی با سرعتی باورنکردنی در حال تغییر جهان ماست. این مقاله به بررسی مرزهای فعلی و چشم‌انداز آینده هوش مصنوعی و تأثیرات آن بر جامعه می‌پردازد.
+                </p>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="text-center text-xs md:text-sm text-gray-500 dark:text-gray-400 mt-16 pb-8 transition-colors duration-300">
+        &copy; 2025 افق. تمامی حقوق محفوظ است.
+    </footer>
+    
+    <!-- JavaScript for Theme Toggle and Scroll Animation -->
+    <script>
+        // Check for saved theme preference or system preference
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+    
+        const themeToggle = document.getElementById('theme-toggle');
+        const sunIcon = document.getElementById('sun-icon');
+        const moonIcon = document.getElementById('moon-icon');
+    
+        // Update icon on page load
+        if (document.documentElement.classList.contains('dark')) {
+            sunIcon.style.display = 'block';
+            moonIcon.style.display = 'none';
+        } else {
+            sunIcon.style.display = 'none';
+            moonIcon.style.display = 'block';
+        }
+    
+        // Toggle theme and save preference
+        themeToggle.addEventListener('click', () => {
+            if (document.documentElement.classList.contains('dark')) {
+                document.documentElement.classList.remove('dark');
+                localStorage.theme = 'light';
+                sunIcon.style.display = 'none';
+                moonIcon.style.display = 'block';
+            } else {
+                document.documentElement.classList.add('dark');
+                localStorage.theme = 'dark';
+                sunIcon.style.display = 'block';
+                moonIcon.style.display = 'none';
+            }
+        });
+    
+        // Smooth scroll animation on load
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.remove('opacity-0', 'translate-y-10');
+                    entry.target.classList.add('opacity-100', 'translate-y-0');
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+    
+        document.querySelectorAll('.glass-card').forEach(card => {
+            card.classList.add('opacity-0', 'translate-y-10', 'transition-all', 'duration-1000', 'ease-out');
+            observer.observe(card);
+        });
+    
+    </script>
+
+</body>
+</html>
